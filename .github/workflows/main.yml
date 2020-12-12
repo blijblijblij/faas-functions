@@ -47,7 +47,7 @@ jobs:
         with:
           context: ./build/node-checker/
           file: ./build/node-checker/Dockerfile
-          platforms: linux/amd64,linux/arm64/v8
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: blijblijblij/node-checker:latest-${{ steps.define_env.outputs.github-sha-short }}
       # - 
