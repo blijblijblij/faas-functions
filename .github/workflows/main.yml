@@ -15,7 +15,7 @@ jobs:
         uses: mrsimpson/action-openfaas-build@master
         with:
           # The OpenFaaS function definition file
-          stack-file: stack.yml
+          stack-file: node-checker.yml
           # Your docker username with push authorization
           docker-username: ${{ secrets.DOCKER_USERNAME }}
           # Your docker username with push authorization
