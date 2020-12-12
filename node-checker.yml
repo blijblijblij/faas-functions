@@ -6,5 +6,5 @@ functions:
   node-checker:
     lang: ruby
     handler: ./node-checker
-    image: node-checker:latest
+    image: blijblijblij/node-checker:latest
 
