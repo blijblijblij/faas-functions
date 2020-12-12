@@ -23,7 +23,7 @@ jobs:
           # the platform abbreviations to build for, e. g. linux/amd64,linux/arm/v7
           platforms: linux/amd64,linux/arm/v7
           # Whether the built image shall be deployed (false=no, true=yes)
-          deploy: ${{ github.ref == 'refs/heads/develop' }}
+          # deploy: ${{ github.ref == 'refs/heads/develop' }}
           # OpenFaaS gateway URL (http(s)://my-public-gateway.tld)
           openfaas-gateway: ${{ secrets.OPENFAAS_GATEWAY }}
           # User for authenticating at OpenFaaS gateway
