@@ -25,11 +25,11 @@ jobs:
           # Whether the built image shall be deployed (false=no, true=yes)
           # deploy: ${{ github.ref == 'refs/heads/develop' }}
           # OpenFaaS gateway URL (http(s)://my-public-gateway.tld)
-          openfaas-gateway: ${{ secrets.OPENFAAS_GATEWAY }}
+          # openfaas-gateway: ${{ secrets.OPENFAAS_GATEWAY }}
           # User for authenticating at OpenFaaS gateway
-          openfaas-username: ${{ secrets.OPENFAAS_USERNAME }}
+          # openfaas-username: ${{ secrets.OPENFAAS_USERNAME }}
           # Password for authenticating at OpenFaaS gateway
-          openfaas-password: ${{ secrets.OPENFAAS_PASSWORD }}
+          # openfaas-password: ${{ secrets.OPENFAAS_PASSWORD }}
 
 #       -
 #         name: Define ENV VARS
