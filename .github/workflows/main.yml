@@ -45,8 +45,8 @@ jobs:
         name: Build and Push the OpenFaaS function
         uses: docker/build-push-action@v2
         with:
-          context: ./node-checker/
-          file: ./node-checker/Dockerfile
+          context: ./build/node-checker/
+          file: ./build/node-checker/Dockerfile
           push: true
           tags: blijblijblij/node-checker:latest-${{ steps.define_env.outputs.github-sha-short }}
       # - 
