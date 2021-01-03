@@ -21,7 +21,7 @@ jobs:
           # Your docker username with push authorization
           docker-password: ${{ secrets.DOCKER_PASSWORD }}
           # the platform abbreviations to build for, e. g. linux/amd64,linux/arm/v7
-          platforms: linux/amd64,linux/arm/v7
+          platforms: linux/amd64,linux/arm/v7,linux/arm64/v8
           # Whether the built image shall be deployed (false=no, true=yes)
           # deploy: ${{ github.ref == 'refs/heads/develop' }}
           # OpenFaaS gateway URL (http(s)://my-public-gateway.tld)
