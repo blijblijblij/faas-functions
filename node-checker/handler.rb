@@ -1,11 +1,13 @@
 # Check whether nodes are running
+
+require 'kubeclient'
+
 class Handler
   def run(_req)
-    logging = Logging.logger(STDOUT)
-    logging.info('#############################')
-    logging.info 'Checking pods on amd64 arch'
-    logging.info Time.now.to_s
-    logging.info('#############################')
+    puts('#############################')
+    puts 'Checking pods on amd64 arch'
+    puts Time.now.to_s
+    puts('#############################')
 
     auth_options = {
       bearer_token_file: '/var/run/secrets/kubernetes.io/serviceaccount/token'
@@ -26,7 +28,7 @@ class Handler
     # fetch all pods labelled for the nightshift
     pods = app_client.get_pods(label_selector: 'beta.kubernetes.io/arch=amd64')
     pods.each do |p|
-      logging.info("#{p.metadata.namespace}: #{p.metadata.name}")
+      puts("#{p.metadata.namespace}: #{p.metadata.name}")
     end
   end
 end
