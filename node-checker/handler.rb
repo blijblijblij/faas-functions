@@ -1,6 +1,6 @@
 # Check whether nodes are running
 class Handler
   def run(_req)
-    'Hello world from the Ruby template'
+    "Hello world from Node checker #{Time.now}"
   end
 end
