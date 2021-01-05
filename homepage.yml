@@ -7,4 +7,5 @@ functions:
     lang: ruby-http
     handler: ./homepage
     image: blijblijblij/homepage:latest
-
+    build_options:
+      - dev
