@@ -39,7 +39,8 @@ jobs:
         name: Pull template
         uses: docker://openfaas/faas-cli:latest-root
         with:
-          args: template store pull ruby-http
+          # args: template store pull ruby-http
+          args: template pull https://github.com/openfaas-incubator/ruby-http
       -
         name: Run shrinkwrap build
         uses: docker://openfaas/faas-cli:latest-root
