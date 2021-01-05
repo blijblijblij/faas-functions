@@ -69,6 +69,7 @@ jobs:
         with:
           context: ./build/homepage/
           file: ./build/homepage/Dockerfile
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: blijblijblij/homepage:latest-${{ steps.define_env.outputs.github-sha-short }}
       - 
