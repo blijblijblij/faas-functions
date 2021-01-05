@@ -11,26 +11,9 @@ jobs:
       - 
         name: Checkout
         uses: actions/checkout@v2
-      # - 
-      #   name: OpenFaaS build and push
-      #   uses: mrsimpson/action-openfaas-build@master
-      #   with:
-      #     # The OpenFaaS function definition file
-      #     stack-file: homepage.yml
-      #     # Your docker username with push authorization
-      #     docker-username: ${{ secrets.DOCKER_USERNAME }}
-      #     # Your docker username with push authorization
-      #     docker-password: ${{ secrets.DOCKER_PASSWORD }}
-      #     # the platform abbreviations to build for, e. g. linux/amd64,linux/arm/v7
-      #     platforms: linux/amd64,linux/arm/v7,linux/arm64/v8
-      #     # Whether the built image shall be deployed (false=no, true=yes)
-      #     # deploy: ${{ github.ref == 'refs/heads/develop' }}
-      #     # OpenFaaS gateway URL (http(s)://my-public-gateway.tld)
-      #     openfaas-gateway: ${{ secrets.OPENFAAS_GATEWAY }}
-      #     # User for authenticating at OpenFaaS gateway
-      #     openfaas-username: ${{ secrets.OPENFAAS_USERNAME }}
-      #     # Password for authenticating at OpenFaaS gateway
-      #     openfaas-password: ${{ secrets.OPENFAAS_PASSWORD }}
+      -
+        name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
       - 
         name: Define ENV VARS
         id: define_env
@@ -39,7 +22,6 @@ jobs:
         name: Pull template
         uses: docker://openfaas/faas-cli:latest-root
         with:
-          # args: template store pull ruby-http
           args: template pull https://github.com/openfaas-incubator/ruby-http
       -
         name: Run shrinkwrap build
@@ -71,7 +53,9 @@ jobs:
           file: ./build/homepage/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: blijblijblij/homepage:latest-${{ steps.define_env.outputs.github-sha-short }}
+          tags: |
+            blijblijblij/homepage:latest-${{ steps.define_env.outputs.github-sha-short }}
+            blijblijblij/homepage:latest
       - 
         name: Deploy the function
         uses: docker://openfaas/faas-cli:latest-root
