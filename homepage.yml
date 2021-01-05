@@ -6,5 +6,5 @@ functions:
   homepage:
     lang: ruby-http
     handler: ./homepage
-    image: homepage:latest
+    image: blijblijblij/homepage:latest
 
