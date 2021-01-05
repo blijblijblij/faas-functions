@@ -16,7 +16,7 @@ jobs:
         uses: mrsimpson/action-openfaas-build@master
         with:
           # The OpenFaaS function definition file
-          stack-file: node-checker.yml
+          stack-file: homepage.yml
           # Your docker username with push authorization
           docker-username: ${{ secrets.DOCKER_USERNAME }}
           # Your docker username with push authorization
@@ -39,12 +39,12 @@ jobs:
         name: Pull template
         uses: docker://openfaas/faas-cli:latest-root
         with:
-          args: template store pull ruby
+          args: template store pull ruby-http
       -
         name: Run shrinkwrap build
         uses: docker://openfaas/faas-cli:latest-root
         with:
-          args: build -f node-checker.yml --shrinkwrap
+          args: build -f homepage.yml --shrinkwrap
       -
         name: Login to OpenFaaS Gateway
         uses: docker://openfaas/faas-cli:latest-root
@@ -56,4 +56,4 @@ jobs:
         name: Deploy the function
         uses: docker://openfaas/faas-cli:latest-root
         with:
-          args: deploy -f node-checker.yml --tag sha 
+          args: deploy -f homepage.yml --tag sha 
