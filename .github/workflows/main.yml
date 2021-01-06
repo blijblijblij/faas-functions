@@ -27,7 +27,7 @@ jobs:
         name: Run shrinkwrap build
         uses: docker://openfaas/faas-cli:latest-root
         with:
-          args: build -f homepage.yml --shrinkwrap --build-arg ADDITIONAL_PACKAGE=build-essential
+          args: build -f homepage.yml --shrinkwrap
       -
         name: Login to OpenFaaS Gateway
         uses: docker://openfaas/faas-cli:latest-root
@@ -53,6 +53,8 @@ jobs:
           file: ./build/homepage/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
+          build-args: |
+            ADDITIONAL_PACKAGE=build-essential
           tags: |
             blijblijblij/homepage:latest-${{ steps.define_env.outputs.github-sha-short }}
             blijblijblij/homepage:latest
