@@ -1,4 +1,4 @@
-require 'figlet'
+require 'logging'
 
 class Handler
   def run(body, _headers)
